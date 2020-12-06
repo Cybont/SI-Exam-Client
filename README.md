@@ -8,4 +8,4 @@
   * https://github.com/jenzuffer/si-exam-Backend
 
 # BPMN Model
-![alt text]()
+![alt text](https://github.com/Cybont/SI-Exam-Client/blob/main/bpmn.jpg)
