@@ -4,9 +4,14 @@ namespace SI_Exam_Client
 {
     class Program
     {
+        #region Booking requests
         public static void CreateBooking()
         {
-            bool hasPostedBooking = Requests.PostBooking();
+            Response response = new Response();
+
+            Requests.PostBooking(response);
+
+            bool hasPostedBooking = response.PostSucceded;
 
             if (hasPostedBooking)
             {
@@ -18,6 +23,42 @@ namespace SI_Exam_Client
                     );
             }
         }
+
+        public static void CancelBooking() 
+        { 
+        }
+
+        public static void FindBooking() 
+        { 
+        }
+
+        #endregion
+
+        #region Hotel requests
+        public static void FindVacantHotels()
+        {
+
+        }
+        #endregion
+
+        #region Room requests
+        public static void FindVacantRooms() 
+        {
+
+        }
+
+        public static void MarkRoomAsReserved() 
+        { 
+
+        }
+        #endregion
+
+        #region Log resquest
+        public static void GetLogs() 
+        { 
+
+        }
+        #endregion
 
         static void Main(string[] args)
         {
