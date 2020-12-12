@@ -11,7 +11,7 @@ namespace SI_Exam_Client
 
             Requests.PostBooking(response);
 
-            bool hasPostedBooking = response.PostSucceded;
+            bool hasPostedBooking = response.Succeded;
 
             if (hasPostedBooking)
             {
@@ -25,11 +25,37 @@ namespace SI_Exam_Client
         }
 
         public static void CancelBooking() 
-        { 
+        {
+            Response response = new Response();
+
+            Requests.DeleteBooking(response);
+
+            bool hasDeletedBooking = response.Succeded;
+            
+            if (hasDeletedBooking) 
+            {
+                Console.WriteLine("Booking has been deleted!");
+            }
+            else
+            {
+                Console.WriteLine("This booking doesn't exist in our system!");
+            }
         }
 
         public static void FindBooking() 
-        { 
+        {
+            Response response = new Response();
+
+            Requests.GetBooking(response);
+
+            if (response.Text != null)
+            {
+                Console.WriteLine(response.Text);
+            }
+            else
+            {
+                Console.WriteLine("This booking doesn't exist in our system!");
+            }
         }
 
         #endregion
@@ -37,14 +63,36 @@ namespace SI_Exam_Client
         #region Hotel requests
         public static void FindVacantHotels()
         {
+            Response response = new Response();
 
+            Requests.GetVacantHotels(response);
+
+            if (response.Text != null)
+            {
+                Console.WriteLine(response.Text);
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find any vacant hotels in our system!");
+            }
         }
         #endregion
 
         #region Room requests
         public static void FindVacantRooms() 
         {
+            Response response = new Response();
 
+            Requests.GetVacantRooms(response);
+
+            if (response.Text != null)
+            {
+                Console.WriteLine(response.Text);
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find any vacant rooms in our system!");
+            }
         }
 
         public static void MarkRoomAsReserved() 

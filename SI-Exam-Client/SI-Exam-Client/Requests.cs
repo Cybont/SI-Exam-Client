@@ -10,6 +10,7 @@ namespace SI_Exam_Client
 {
     public static class Requests
     {
+        #region Booking
         public static async void PostBooking(Response responseObj) {
             var json = JsonConvert.SerializeObject(new object());
             var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -22,7 +23,52 @@ namespace SI_Exam_Client
 
             string result = response.Content.ReadAsStringAsync().Result;
 
-            responseObj.PostSucceded = true;
+            responseObj.Succeded = true;
+        }
+
+        public static async void DeleteBooking(Response response)
+        {
+            var url = "";
+
+            using var client = new HttpClient();
+
+            string result = (await client.DeleteAsync(url)).Content.ReadAsStringAsync().Result;
+
+            response.Succeded = true;
+        }
+
+        public static async void GetBooking(Response response) 
+        {
+            var url = "";
+
+            using var client = new HttpClient();
+
+            string result = (await client.GetAsync(url)).Content.ReadAsStringAsync().Result;
+
+            response.Text = result;
+        }
+        #endregion
+
+        public static async void GetVacantHotels(Response response) 
+        {
+            var url = "";
+
+            using var client = new HttpClient();
+
+            string result = (await client.GetAsync(url)).Content.ReadAsStringAsync().Result;
+
+            response.Text = result;
+        }
+
+        public static async void GetVacantRooms(Response response)
+        {
+            var url = "";
+
+            using var client = new HttpClient();
+
+            string result = (await client.GetAsync(url)).Content.ReadAsStringAsync().Result;
+
+            response.Text = result;
         }
     }
 }

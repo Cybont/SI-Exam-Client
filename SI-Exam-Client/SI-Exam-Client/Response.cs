@@ -6,8 +6,8 @@ namespace SI_Exam_Client
 {
     public class Response
     {
-        public bool PostSucceded = false;
+        public bool Succeded = false;
 
-        public string ResponseText;
+        public string Text;
     }
 }

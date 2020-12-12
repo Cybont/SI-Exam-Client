@@ -20,14 +20,13 @@
     <bpmn:startEvent id="Event_0st4lga" name="Send booking request">
       <bpmn:outgoing>Flow_1m2e3i3</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:intermediateThrowEvent id="Event_0xlcvgm" name="Request sent">
-      <bpmn:incoming>Flow_0ao1iej</bpmn:incoming>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0k28stq" />
-    </bpmn:intermediateThrowEvent>
     <bpmn:userTask id="Activity_136dowb" name="Create Booking">
       <bpmn:incoming>Flow_1m2e3i3</bpmn:incoming>
       <bpmn:outgoing>Flow_0w3v33p</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:endEvent id="Event_0xlcvgm" name="Request sent">
+      <bpmn:incoming>Flow_0ao1iej</bpmn:incoming>
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmn:process id="Process_0pq8wdi" isExecutable="false">
     <bpmn:startEvent id="Event_1gxdqgp" name="Consume RMI Infterface">
@@ -44,10 +43,9 @@
     <bpmn:sequenceFlow id="Flow_0vgtl65" sourceRef="Event_1gxdqgp" targetRef="Activity_1kylo78" />
     <bpmn:sequenceFlow id="Flow_0z1hr1v" sourceRef="Activity_1kylo78" targetRef="Activity_1wa8fdt" />
     <bpmn:sequenceFlow id="Flow_0e4hvpv" sourceRef="Activity_1wa8fdt" targetRef="Event_15nm6bm" />
-    <bpmn:intermediateThrowEvent id="Event_15nm6bm" name="Booking data sent to backend">
+    <bpmn:endEvent id="Event_15nm6bm" name="Booking data sent to backend">
       <bpmn:incoming>Flow_0e4hvpv</bpmn:incoming>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_04jo4mx" />
-    </bpmn:intermediateThrowEvent>
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmn:process id="Process_1t3kq28" isExecutable="false">
     <bpmn:laneSet id="LaneSet_0wf97m6" />
@@ -143,14 +141,14 @@
           <dc:Bounds x="567" y="215" width="68" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0yuzy68_di" bpmnElement="Event_0xlcvgm">
+      <bpmndi:BPMNShape id="Activity_17g1abv_di" bpmnElement="Activity_136dowb">
+        <dc:Bounds x="670" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1aaoimd_di" bpmnElement="Event_0xlcvgm">
         <dc:Bounds x="1032" y="172" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1017" y="148" width="66" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_17g1abv_di" bpmnElement="Activity_136dowb">
-        <dc:Bounds x="670" y="150" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_19i8bdj_di" bpmnElement="Participant_19i8bdj" isHorizontal="true">
         <dc:Bounds x="160" y="340" width="600" height="270" />
@@ -179,7 +177,7 @@
       <bpmndi:BPMNShape id="Activity_1n8m39q_di" bpmnElement="Activity_1wa8fdt">
         <dc:Bounds x="490" y="430" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_12fh743_di" bpmnElement="Event_15nm6bm">
+      <bpmndi:BPMNShape id="Event_0iw2uim_di" bpmnElement="Event_15nm6bm">
         <dc:Bounds x="662" y="452" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="635" y="495" width="90" height="27" />
@@ -320,8 +318,8 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0u7d0lw_di" bpmnElement="Flow_0u7d0lw">
         <di:waypoint x="680" y="452" />
-        <di:waypoint x="680" y="410" />
-        <di:waypoint x="950" y="410" />
+        <di:waypoint x="680" y="430" />
+        <di:waypoint x="950" y="430" />
         <di:waypoint x="950" y="452" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1t6jhvz_di" bpmnElement="Flow_1t6jhvz">
