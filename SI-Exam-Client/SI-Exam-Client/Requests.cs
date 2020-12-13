@@ -12,7 +12,8 @@ namespace SI_Exam_Client
     public static class Requests
     {
         #region Booking
-        public static async void PostBooking(Response responseObj, CreateBookingDTO createBooking) {
+        public static void PostBooking(Response responseObj, CreateBookingDTO createBooking)
+        {
             var json = JsonConvert.SerializeObject(createBooking);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -20,11 +21,11 @@ namespace SI_Exam_Client
 
             using var client = new HttpClient();
 
-            var response =  client.PostAsync(url, data).Result;
+            var response = client.PostAsync(url, data).Result;
 
             string result = response.Content.ReadAsStringAsync().Result;
 
-            if(result == "false")
+            if (result == "false")
             {
                 responseObj.Succeded = false;
             }
@@ -34,49 +35,56 @@ namespace SI_Exam_Client
             }
         }
 
-        public static async void DeleteBooking(Response response, int id)
+        public static void DeleteBooking(Response responseObj, int id)
         {
-            var url = "localhost:9090/booking/" + id;
+            var url = "http://localhost:9090/booking/" + id;
 
             using var client = new HttpClient();
 
-            string result = (await client.DeleteAsync(url)).Content.ReadAsStringAsync().Result;
+            string result = (client.DeleteAsync(url).Result).Content.ReadAsStringAsync().Result;
 
-            response.Succeded = true;
+            if (result == "false")
+            {
+                responseObj.Succeded = false;
+            }
+            else
+            {
+                responseObj.Succeded = true;
+            }
         }
 
-        public static async void GetBooking(Response response, int id) 
+        public static void GetBooking(Response responseObj, int id) 
         {
-            var url = "localhost:8080/booking/" + id;
+            var url = "http://localhost:9090/booking/" + id;
 
             using var client = new HttpClient();
 
-            string result = (await client.GetAsync(url)).Content.ReadAsStringAsync().Result;
+            string result = (client.GetAsync(url).Result).Content.ReadAsStringAsync().Result;
 
-            response.Text = result;
+            responseObj.Text = result;
         }
         #endregion
 
-        public static async void GetVacantHotels(Response response) 
+        public static void GetVacantHotels(Response responseObj) 
         {
             var url = "localhost:8080/hotels";
 
             using var client = new HttpClient();
 
-            string result = (await client.GetAsync(url)).Content.ReadAsStringAsync().Result;
+            string result = (client.GetAsync(url).Result).Content.ReadAsStringAsync().Result;
 
-            response.Text = result;
+            responseObj.Text = result;
         }
 
-        public static async void GetVacantRooms(Response response)
+        public static void GetVacantRooms(Response responseObj)
         {
             var url = "localhost:8080/rooms";
 
             using var client = new HttpClient();
 
-            string result = (await client.GetAsync(url)).Content.ReadAsStringAsync().Result;
+            string result = (client.GetAsync(url).Result).Content.ReadAsStringAsync().Result;
 
-            response.Text = result;
+            responseObj.Text = result;
         }
     }
 }
