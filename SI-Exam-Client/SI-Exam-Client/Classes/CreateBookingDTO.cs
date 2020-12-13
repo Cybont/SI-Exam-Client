@@ -7,13 +7,13 @@ namespace SI_Exam_Client.Classes
     public class CreateBookingDTO
     {
         private List<string> roomNumbers;
-        private String passportNumber;
+        private string passportNumber;
         private int numberOfGuests;
         private DateTime arrival;
         private DateTime departure;
         private bool lateArrival;
 
-        public CreateBookingDTO(List<string> roomNumbers, String passportNumber, int numberOfGuests, DateTime arrival, DateTime departure, bool lateArrival)
+        public CreateBookingDTO(List<string> roomNumbers, string passportNumber, int numberOfGuests, DateTime arrival, DateTime departure, bool lateArrival)
         {
             this.roomNumbers = roomNumbers;
             this.passportNumber = passportNumber;
