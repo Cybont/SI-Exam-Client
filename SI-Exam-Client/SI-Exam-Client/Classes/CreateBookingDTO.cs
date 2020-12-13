@@ -27,64 +27,21 @@ namespace SI_Exam_Client.Classes
         {
         }
 
-        public List<string> getRoomNumbers()
-        {
-            return roomNumbers;
-        }
+        public List<string> RoomNumbers => roomNumbers;
 
-        public void setRoomNumbers(List<string> roomNumbers)
-        {
-            this.roomNumbers = roomNumbers;
-        }
+        public String PassportNumber => passportNumber;
 
-        public String getPassportNumber()
-        {
-            return passportNumber;
-        }
 
-        public void setPassportNumber(String passportNumber)
-        {
-            this.passportNumber = passportNumber;
-        }
+        public int NumberOfGuests => numberOfGuests;
 
-        public int getNumberOfGuests()
-        {
-            return numberOfGuests;
-        }
+        public DateTime Arrival => arrival;
 
-        public void setNumberOfGuests(int numberOfGuests)
-        {
-            this.numberOfGuests = numberOfGuests;
-        }
 
-        public DateTime getArrival()
-        {
-            return arrival;
-        }
+        public DateTime Departure => departure;
 
-        public void setArrival(DateTime arrival)
-        {
-            this.arrival = arrival;
-        }
 
-        public DateTime getDeparture()
-        {
-            return departure;
-        }
+        public bool isLateArrival => lateArrival;
 
-        public void setDeparture(DateTime departure)
-        {
-            this.departure = departure;
-        }
 
-        public bool isLateArrival()
-        {
-            return lateArrival;
-        }
-
-        public void setLateArrival(bool lateArrival)
-        {
-            this.lateArrival = lateArrival;
-        }
     }
 }
