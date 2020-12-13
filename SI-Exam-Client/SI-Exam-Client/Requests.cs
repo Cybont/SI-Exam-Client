@@ -16,11 +16,11 @@ namespace SI_Exam_Client
             var json = JsonConvert.SerializeObject(createBooking);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var url = "localhost:8080/booking";
+            var url = "http://localhost:9090/booking";
 
             using var client = new HttpClient();
 
-            var response = await client.PostAsync(url, data);
+            var response =  client.PostAsync(url, data).Result;
 
             string result = response.Content.ReadAsStringAsync().Result;
 
@@ -36,7 +36,7 @@ namespace SI_Exam_Client
 
         public static async void DeleteBooking(Response response, int id)
         {
-            var url = "localhost:8080/booking/" + id;
+            var url = "localhost:9090/booking/" + id;
 
             using var client = new HttpClient();
 

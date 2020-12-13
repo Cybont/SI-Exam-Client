@@ -10,7 +10,7 @@ namespace SI_Exam_Client
         public static void CreateBooking()
         {
             CreateBookingDTO createBooking = new CreateBookingDTO(
-                new List<string>{ "223M" }, "123cjohn3", 5, DateTime.Parse("2020-12-12"), DateTime.Parse("2021-07-01"), false);
+                new List<string>{ "323M" }, "123cjohn3", 5, DateTime.Parse("2020-12-12"), DateTime.Parse("2021-07-01"), false);
 
             Response response = new Response();
 
