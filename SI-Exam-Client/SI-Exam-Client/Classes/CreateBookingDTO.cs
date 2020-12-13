@@ -29,7 +29,7 @@ namespace SI_Exam_Client.Classes
 
         public List<string> RoomNumbers => roomNumbers;
 
-        public String PassportNumber => passportNumber;
+        public string PassportNumber => passportNumber;
 
 
         public int NumberOfGuests => numberOfGuests;
