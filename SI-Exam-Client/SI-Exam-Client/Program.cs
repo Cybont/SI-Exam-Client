@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SI_Exam_Client.Classes;
+using System;
+using System.Collections.Generic;
 
 namespace SI_Exam_Client
 {
@@ -7,9 +9,12 @@ namespace SI_Exam_Client
         #region Booking requests
         public static void CreateBooking()
         {
+            CreateBookingDTO createBooking = new CreateBookingDTO(
+                new List<string>{ "223M" }, "123cjohn3", 5, DateTime.Parse("2020-12-12"), DateTime.Parse("2021-07-01"), false);
+
             Response response = new Response();
 
-            Requests.PostBooking(response);
+            Requests.PostBooking(response, createBooking);
 
             bool hasPostedBooking = response.Succeded;
 
@@ -28,7 +33,7 @@ namespace SI_Exam_Client
         {
             Response response = new Response();
 
-            Requests.DeleteBooking(response);
+            Requests.DeleteBooking(response, 0);
 
             bool hasDeletedBooking = response.Succeded;
             
@@ -46,7 +51,7 @@ namespace SI_Exam_Client
         {
             Response response = new Response();
 
-            Requests.GetBooking(response);
+            Requests.GetBooking(response, 0);
 
             if (response.Text != null)
             {

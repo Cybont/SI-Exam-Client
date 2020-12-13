@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SI_Exam_Client.Classes;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,11 +12,11 @@ namespace SI_Exam_Client
     public static class Requests
     {
         #region Booking
-        public static async void PostBooking(Response responseObj) {
-            var json = JsonConvert.SerializeObject(new object());
+        public static async void PostBooking(Response responseObj, CreateBookingDTO createBooking) {
+            var json = JsonConvert.SerializeObject(createBooking);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var url = "";
+            var url = "localhost:8080/booking";
 
             using var client = new HttpClient();
 
@@ -26,9 +27,9 @@ namespace SI_Exam_Client
             responseObj.Succeded = true;
         }
 
-        public static async void DeleteBooking(Response response)
+        public static async void DeleteBooking(Response response, int id)
         {
-            var url = "";
+            var url = "localhost:8080/booking/" + id;
 
             using var client = new HttpClient();
 
@@ -37,9 +38,9 @@ namespace SI_Exam_Client
             response.Succeded = true;
         }
 
-        public static async void GetBooking(Response response) 
+        public static async void GetBooking(Response response, int id) 
         {
-            var url = "";
+            var url = "localhost:8080/booking/" + id;
 
             using var client = new HttpClient();
 
@@ -51,7 +52,7 @@ namespace SI_Exam_Client
 
         public static async void GetVacantHotels(Response response) 
         {
-            var url = "";
+            var url = "localhost:8080/hotels";
 
             using var client = new HttpClient();
 
@@ -62,7 +63,7 @@ namespace SI_Exam_Client
 
         public static async void GetVacantRooms(Response response)
         {
-            var url = "";
+            var url = "localhost:8080/rooms";
 
             using var client = new HttpClient();
 
