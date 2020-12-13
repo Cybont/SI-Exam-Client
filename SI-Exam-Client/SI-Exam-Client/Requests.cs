@@ -24,8 +24,14 @@ namespace SI_Exam_Client
 
             string result = response.Content.ReadAsStringAsync().Result;
 
-            responseObj.Succeded = true;
-            responseObj.Text = result;
+            if(result == "false")
+            {
+                responseObj.Succeded = false;
+            }
+            else
+            {
+                responseObj.Succeded = true;
+            }
         }
 
         public static async void DeleteBooking(Response response, int id)
