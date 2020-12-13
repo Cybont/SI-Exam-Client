@@ -18,6 +18,8 @@ namespace SI_Exam_Client
 
             bool hasPostedBooking = response.Succeded;
 
+            Console.WriteLine(response.Text);
+
             if (hasPostedBooking)
             {
                 Console.WriteLine("Booking has been created!");

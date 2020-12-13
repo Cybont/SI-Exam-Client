@@ -25,6 +25,7 @@ namespace SI_Exam_Client
             string result = response.Content.ReadAsStringAsync().Result;
 
             responseObj.Succeded = true;
+            responseObj.Text = result;
         }
 
         public static async void DeleteBooking(Response response, int id)
