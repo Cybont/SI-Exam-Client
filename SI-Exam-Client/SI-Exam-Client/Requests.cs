@@ -67,7 +67,7 @@ namespace SI_Exam_Client
 
         public static void GetVacantHotels(Response responseObj) 
         {
-            var url = "localhost:8080/hotels";
+            var url = "http://localhost:9090/hotels";
 
             using var client = new HttpClient();
 
@@ -78,7 +78,7 @@ namespace SI_Exam_Client
 
         public static void GetVacantRooms(Response responseObj)
         {
-            var url = "localhost:8080/rooms";
+            var url = "http://localhost:9090/rooms";
 
             using var client = new HttpClient();
 

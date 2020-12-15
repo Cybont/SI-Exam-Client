@@ -65,23 +65,6 @@ namespace SI_Exam_Client
 
         #endregion
 
-        #region Hotel requests
-        public static void FindVacantHotels()
-        {
-            Response response = new Response();
-
-            Requests.GetVacantHotels(response);
-
-            if (response.Text != null)
-            {
-                Console.WriteLine(response.Text);
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find any vacant hotels in our system!");
-            }
-        }
-        #endregion
 
         #region Room requests
         public static void FindVacantRooms() 
